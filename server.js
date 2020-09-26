@@ -3,13 +3,16 @@ const cors = require("cors");
 const mongoose = require('mongoose');
 require('dotenv').config();
 
+// Set up Server
 const app = express();
+// cors = Cross-Origin-Resource-Sharing
+// cors is used when deploying apps from multiple repos, I may remove it later
 app.use(cors());
 app.use(express.json());
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 console.log("server starting..."),
-app.listen(PORT, () => console.log('Server is running on port: 3000'));
+app.listen(PORT, () => console.log(`Server is running on port:${PORT}`));
 
 // Set up routes
 app.use("/posts", require("./src/routes/postRoutes"));
